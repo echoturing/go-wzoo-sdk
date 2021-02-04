@@ -18,7 +18,7 @@ func (i *impl) CreateWorkstation(ctx context.Context, deviceID string) (*CreateW
 	data := url.Values{}
 	data.Add(fieldDeviceID, deviceID)
 	var resp CreateWorkstationResponse
-	err := YuQueDo(ctx, i.httpClient, i.yuqueEndpoint+path, &resp, data, WithAuthorization(i.defaultToken))
+	err := Do(ctx, i.httpClient, i.yuqueEndpoint+path, &resp, data, WithAuthorization(i.defaultToken))
 	if err != nil {
 		return nil, err
 	}

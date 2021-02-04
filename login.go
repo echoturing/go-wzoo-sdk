@@ -24,7 +24,7 @@ func (i *impl) Login(ctx context.Context, username, password string) (*LoginResp
 	data.Add("username", username)
 	data.Add("password", password)
 	var loginResponse LoginResponse
-	err := YuQueDo(ctx, i.httpClient, i.yuqueEndpoint+"/auth/login", &loginResponse, data)
+	err := Do(ctx, i.httpClient, i.yuqueEndpoint+"/auth/login", &loginResponse, data)
 	if err != nil {
 		return nil, err
 	}

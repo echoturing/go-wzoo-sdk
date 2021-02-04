@@ -32,7 +32,7 @@ func (i *impl) LoginAgainAsync(ctx context.Context, deviceID string) (*LoginAgai
 	data := url.Values{}
 	data.Add(fieldDeviceID, deviceID)
 	var resp LoginAgainAsyncResponse
-	err := YuQueDo(ctx, i.httpClient, i.yuqueEndpoint+path, &resp, data, WithAuthorization(i.defaultToken))
+	err := Do(ctx, i.httpClient, i.yuqueEndpoint+path, &resp, data, WithAuthorization(i.defaultToken))
 	if err != nil {
 		return nil, err
 	}

@@ -11,17 +11,17 @@ import (
 	"net/url"
 )
 
-// YuQueDo ...
-func YuQueDo(ctx context.Context, client *http.Client, url string, resp interface{}, reqData url.Values, options ...Option) error {
-	req, err := newYuQueSDKRequest(ctx, "POST", url, bytes.NewBufferString(reqData.Encode()), options...)
+// Do ...
+func Do(ctx context.Context, client *http.Client, url string, resp interface{}, reqData url.Values, options ...Option) error {
+	req, err := newSDKRequest(ctx, "POST", url, bytes.NewBufferString(reqData.Encode()), options...)
 	if err != nil {
 		return err
 	}
 	return do(ctx, client, req, resp)
 }
 
-// newYuQueSDKRequest ...
-func newYuQueSDKRequest(ctx context.Context, method, url string, body io.Reader, options ...Option) (*http.Request, error) {
+// newSDKRequest ...
+func newSDKRequest(ctx context.Context, method, url string, body io.Reader, options ...Option) (*http.Request, error) {
 	req, err := http.NewRequest(method, url, body)
 	if err != nil {
 		return nil, err

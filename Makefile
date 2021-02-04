@@ -1,4 +1,4 @@
-SERVICE_NAME=github.com/echoturing/go-yuque-sdk
+SERVICE_NAME=github.com/echoturing/go-wzoo-sdk
 
 .PHONY:fmt
 fmt:

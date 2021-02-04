@@ -15,7 +15,7 @@ func (i *impl) SendImage(ctx context.Context, deviceID, wxID, imageURL string) (
 	data.Add("wxId", wxID)
 	data.Add("content", imageURL)
 	var resp SendImageResponse
-	err := YuQueDo(ctx, i.httpClient, i.yuqueEndpoint+path, &resp, data, WithAuthorization(i.defaultToken))
+	err := Do(ctx, i.httpClient, i.yuqueEndpoint+path, &resp, data, WithAuthorization(i.defaultToken))
 	if err != nil {
 		return nil, err
 	}

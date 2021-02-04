@@ -21,7 +21,7 @@ func (i *impl) GetLoginQRCode(ctx context.Context, deviceID string) (*GetLoginQR
 	data := url.Values{}
 	data.Add("deviceId", deviceID)
 	var resp GetLoginQRCodeResponse
-	err := YuQueDo(ctx, i.httpClient, i.yuqueEndpoint+"/open/getLoginQrCode", &resp, data, WithAuthorization(i.defaultToken))
+	err := Do(ctx, i.httpClient, i.yuqueEndpoint+"/open/getLoginQrCode", &resp, data, WithAuthorization(i.defaultToken))
 	if err != nil {
 		return nil, err
 	}

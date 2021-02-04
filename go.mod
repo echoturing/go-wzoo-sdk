@@ -1,3 +1,3 @@
-module github.com/echoturing/go-yuque-sdk
+module github.com/echoturing/go-wzoo-sdk
 
 go 1.15
