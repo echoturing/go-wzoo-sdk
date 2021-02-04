@@ -1,4 +1,4 @@
-package yuque_sdk
+package wzoo_sdk
 
 import (
 	"context"
@@ -31,7 +31,7 @@ func (i *impl) CheckLoginShort(ctx context.Context, deviceID string) (*CheckLogi
 	data := url.Values{}
 	data.Add(fieldDeviceID, deviceID)
 	var resp CheckLoginShortResponse
-	err := Do(ctx, i.httpClient, i.yuqueEndpoint+"/open/checkLoginShort", &resp, data, WithAuthorization(i.defaultToken))
+	err := Do(ctx, i.httpClient, i.wzooEndpoint+"/open/checkLoginShort", &resp, data, WithAuthorization(i.defaultToken))
 	if err != nil {
 		return nil, err
 	}

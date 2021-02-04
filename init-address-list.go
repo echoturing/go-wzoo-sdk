@@ -1,4 +1,4 @@
-package yuque_sdk
+package wzoo_sdk
 
 import (
 	"context"
@@ -16,7 +16,7 @@ func (i *impl) InitAddressList(ctx context.Context, deviceID string) (*InitAddre
 	data := url.Values{}
 	data.Add("deviceId", deviceID)
 	var resp InitAddressListResponse
-	err := Do(ctx, i.httpClient, i.yuqueEndpoint+path, &resp, data, WithAuthorization(i.defaultToken))
+	err := Do(ctx, i.httpClient, i.wzooEndpoint+path, &resp, data, WithAuthorization(i.defaultToken))
 	if err != nil {
 		return nil, err
 	}

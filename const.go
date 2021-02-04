@@ -1,4 +1,4 @@
-package yuque_sdk
+package wzoo_sdk
 
 const (
 	testDeviceID  = "test-device-id-shm"

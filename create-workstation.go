@@ -1,4 +1,4 @@
-package yuque_sdk
+package wzoo_sdk
 
 import (
 	"context"
@@ -18,7 +18,7 @@ func (i *impl) CreateWorkstation(ctx context.Context, deviceID string) (*CreateW
 	data := url.Values{}
 	data.Add(fieldDeviceID, deviceID)
 	var resp CreateWorkstationResponse
-	err := Do(ctx, i.httpClient, i.yuqueEndpoint+path, &resp, data, WithAuthorization(i.defaultToken))
+	err := Do(ctx, i.httpClient, i.wzooEndpoint+path, &resp, data, WithAuthorization(i.defaultToken))
 	if err != nil {
 		return nil, err
 	}

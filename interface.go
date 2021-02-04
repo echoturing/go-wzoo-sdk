@@ -1,12 +1,12 @@
-package yuque_sdk
+package wzoo_sdk
 
 import (
 	"context"
 	"net/http"
 )
 
-// YuQueSDK https://www.yuque.com/wechatpro/wxapi/intro
-type YuQueSDK interface {
+// WZooSDK https://www.yuque.com/wechatpro/wxapi/intro
+type WZooSDK interface {
 	weChatAPI
 	// https://www.yuque.com/wechatpro/wxapi/ycplgp
 	Login(ctx context.Context, username, password string) (*LoginResponse, error)
@@ -33,17 +33,17 @@ type weChatAPI interface {
 }
 
 type impl struct {
-	httpClient    *http.Client
-	defaultToken  string
-	yuqueEndpoint string
+	httpClient   *http.Client
+	defaultToken string
+	wzooEndpoint string
 }
 
-var _ YuQueSDK = (*impl)(nil)
+var _ WZooSDK = (*impl)(nil)
 
-func NewYuQueSDK(token string, endpoint string) YuQueSDK {
+func NewWZooSDK(token string, endpoint string) WZooSDK {
 	return &impl{
-		httpClient:    http.DefaultClient,
-		defaultToken:  token,    // token 从login获取一次就行
-		yuqueEndpoint: endpoint, // yuque api的地址
+		httpClient:   http.DefaultClient,
+		defaultToken: token,    // token 从login获取一次就行
+		wzooEndpoint: endpoint, // wzoo api的地址
 	}
 }

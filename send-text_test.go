@@ -1,4 +1,4 @@
-package yuque_sdk
+package wzoo_sdk
 
 import (
 	"context"
@@ -7,7 +7,7 @@ import (
 )
 
 func TestImpl_SendText(t *testing.T) {
-	sdk := NewYuQueSDK(testToken, testEndpoint)
+	sdk := NewWZooSDK(testToken, testEndpoint)
 	ctx := context.Background()
 	resp, err := sdk.SendText(ctx, testDeviceID, "25378354803@chatroom", "🤩 world!")
 	if err != nil {
